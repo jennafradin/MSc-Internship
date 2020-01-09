@@ -1,6 +1,6 @@
 # MSc Internship
 
-Master 2 internship under the supervision of @laurentperrinet
+Master 2 internship under the supervision of [Laurent Perrinet](https://github.com/laurentperrinet)
 
 
 
