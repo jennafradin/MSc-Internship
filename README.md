@@ -3,7 +3,6 @@
 Master 2 internship under the supervision of [Laurent Perrinet](https://github.com/laurentperrinet)
 
 
-
 ## Main objective
 
 Orientation selectivity of neurons in V1 is believed to be central to visual form perception. In many species (especially in mammals), early stages of visual form processing begin with orientation selectives neurons in primary visual cortex (**V1**). V1 neurons that share the same preferred orientation are grouped into *orientation columns*. Cortical cells in a neighbor column will have a slightly different orientation preference, which gradually vary across the surface of the cortex. 
