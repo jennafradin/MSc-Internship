@@ -14,3 +14,5 @@ The main objective of this internship is to create a **realistic** model of the 
 Observations and project's progress  will be documented and presented in the form of a clear and concise technical report (Notebooks). 
 
 They will be posted weekly in the /Notebooks folder
+
+![motionCloud](/gif/motionCloud.gif)
