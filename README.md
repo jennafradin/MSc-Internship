@@ -15,4 +15,5 @@ Observations and project's progress  will be documented and presented in the for
 
 They will be posted weekly in the /Notebooks folder
 
-![motionCloud](/gif/motionCloud.gif)
+                               
+                              ![motionCloud](/gif/motionCloud.gif)
