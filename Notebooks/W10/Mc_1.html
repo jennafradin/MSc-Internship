@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orientation discrimination experiment</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+  <script>
+
+    var timeline = [];
+
+    /* welcome message */
+    var Welcome = {
+      type: 'html-keyboard-response',
+      stimulus: 'Welcome to the orientation discrimination task. Press any key to begin'
+    };
+    timeline.push(welcome);
+
+    /* instructions */
+    var instructions = {
+      type: 'html-keyboard-response',
+      stimulus: "<p> At each trial you see one textured image, report the orientation you perceive </p> "+
+         "<p>Click <kbd>K</kbd> if it is <strong> clockwise</strong> of the vertical </p>" +
+         "<p> Click <kbd>J</kbd> if it is <strong>counter-clockwise</strong> of the vertical </p>"+
+         "<p> Press any key to begin </p>" ,
+      post_trial_gap:2000
+    };
+    timeline.push(instructions);
+
+    /*fixation cross */
+    var fixation = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:60px;">+</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 500,
+    };
+    timeline.push(fixation);
+ 
+    /* test trials */ 
+    var test_stimuli = [
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.98695682366704_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.3952001522944302_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.5717189729427746_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.8360548966725836_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.8752265309541573_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.8887258486388759_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.9050956121733457_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.9621941760092825_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.9818952179410758_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+      {stimulus: "github/MSc-Internship/Notebooks/W09/tmp/0.9861569480604769_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+    ];
+
+    var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: jsPsych.NO_KEYS,
+      data: jsPsych.timelineVariable('data'),
+      trial_duration : 250,
+    }
+ 
+      /*question mark*/
+    var question_mark = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:60px;">?</div>',
+      choices: ['j','k'],
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      },
+    }
+
+    var test_procedure = {
+      timeline: [test, question_mark],
+      timeline_variables: test_stimuli,
+      randomize_order: true,
+      repetitions:10
+    }
+
+    timeline.push(test_procedure);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+
+  </script>
+</html>
+
+
