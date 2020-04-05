@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+
+      /* create timeline */
+      var timeline = [];
+
+      /* define welcome message trial */
+      var welcome = {
+        type: "html-keyboard-response",
+        stimulus: "Welcome to the orientation discrimination task. Press any key to begin."
+      };
+      timeline.push(welcome);
+
+      /* define instructions trial */
+      var instructions = {
+        type: "html-keyboard-response",
+        stimulus: "<p>At each trial, you see one textured image " +
+            "report the orientation you perceive.</p><p>If it is <strong>clockwise</strong> of the vertical, " +
+            "press the letter <kbd>K</kbd> on the keyboard.</p>" +
+            "<p>If is it <strong>counter-clockwise</strong>, press the letter <kbd>J</kbd> " +
+            "<div style='width: 700px;'>"+
+            "<p>Press any key to begin.</p>",
+        post_trial_gap: 2000
+      };
+      timeline.push(instructions);
+
+      /* test trials */
+      var test_stimuli = [
+        {stimulus: "imgs/0.98695682366704_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "imgs/0.3952001522944302_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+      ];
+      
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus:'<div style="font-size:60px;">+</div>',
+        choice: jsPsych.NO_KEYS,
+        trial_duration: 500,
+        data:{test_part:'fixation'}
+      }
+      var test = {
+        type: "image-keyboard-response",
+        stimulus: jsPsych.timelineVariable('stimulus'),
+        choices: ['j','k'],
+        data:jsPsych.timelineVariable("data"),
+        on_finish: function(data){
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+        }
+      }
+     
+      var test_procedure = {
+        timeline: [fixation,test],
+        timeline_variables: test_stimuli
+      }
+      timeline.push(test_procedure);
+
+      /* start the experiment */   
+      jsPsych.init({
+        timeline: timeline
+      });
+   </script>
+</html>
