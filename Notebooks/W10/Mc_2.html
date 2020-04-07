@@ -35,10 +35,10 @@
 
       /* test trials */
       var test_stimuli = [
-        {stimulus: "imgs/0.98695682366704_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
-        {stimulus: "imgs/0.3952001522944302_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "MC/0.98695682366704_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "MC/0.3952001522944302_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
       ];
-      
+
       var fixation = {
         type: 'html-keyboard-response',
         stimulus:'<div style="font-size:60px;">+</div>',
@@ -55,14 +55,14 @@
             data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
         }
       }
-     
+
       var test_procedure = {
         timeline: [fixation,test],
         timeline_variables: test_stimuli
       }
       timeline.push(test_procedure);
 
-      /* start the experiment */   
+      /* start the experiment */
       jsPsych.init({
         timeline: timeline
       });
