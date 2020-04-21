@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+        <script src="/assets/javascripts/jatos.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+        <style type="text/css">
+          #jspsych-image-keyboard-response-stimulus {
+            border-radius: 50%;
+          }
+        </style>
+    </head>
+    <body style="background-color:rgb(166,160,159);"></body>
+    <script>
+
+      /* create timeline */
+      var timeline = [];
+
+      /* define welcome message trial */
+      var welcome = {
+        type: "html-keyboard-response",
+        stimulus: "Welcome to the orientation discrimination task. Press any key to begin."
+      };
+      timeline.push(welcome);
+
+      /* define instructions trial */
+      var instructions = {
+        type: "html-keyboard-response",
+        stimulus: "<p>At each trial, you see one textured image " +
+            "report the orientation you perceive.</p><p>If it is <strong>clockwise</strong> of the vertical, " +
+            "press the letter <kbd>K</kbd> on the keyboard.</p>" +
+            "<p>If is it <strong>counter-clockwise</strong>, press the letter <kbd>J</kbd> " +
+            "<div style='width: 700px;'>"+
+            "<p>Press any key to begin.</p>",
+        post_trial_gap: 2000
+      };
+      timeline.push(instructions);
+
+      /* test trials */
+      var test_stimuli = [
+        {stimulus: "img/0.67001768029051_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.650828127651995_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.5597189954767974_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.6090514529318471_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.6406775263136231_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.6489943842588775_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.6733989281613826_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.6766493745854752_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7116486744498896_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7531330653087361_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7663566336926585_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7795092929787689_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7887330611607337_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7893652053781228_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.7993372701647107_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8123765921394317_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8216187462211779_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8350693208443021_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8374092583851938_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8579277913361435_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.8732129872498833_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.9004191997740117_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.9323521608228108_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.9332790901002229_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.9472368209955896_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.9855780583088177_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.24893495035430413_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.29053894722929363_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/0.38406706891036935_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.27209951754564_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.64278939511416_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.205613143376645_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.232344865544059_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.237884303069643_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.260480265561256_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.289690587285865_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.317285984722123_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.358815634310339_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.369352499138212_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.384928821268282_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.393596330702341_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.440147962412447_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.450094162573894_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.450538387582796_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.508665044106004_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.542238526954806_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.544413299416932_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.570427178541206_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.574639895547609_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.0610422129126635_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.688442928113758_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.0768934701720954_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.870371267796233_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.917627686985145_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.0992548647616893_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.1209763608919368_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.1743923532795464_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.1762383575133577_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2046253033288536_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2188092802196642_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2241771792897158_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2370956239434854_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2440163659016716_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2746389572796006_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2833157860123434_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2869671015207738_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.2928066643504201_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.3030689762899503_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.3734610915117722_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.3791521125256168_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.3887769100076444_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4025543790405255_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4029375319970832_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4209980838381155_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4232505377773317_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4329717683715772_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4415187533765845_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4816360567943623_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.4824905262849146_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.5274296436004828_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.5474419563708017_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.5515279497069572_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'k'}},
+        {stimulus: "img/1.5913402999712651_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6015706449089269_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6027758856289507_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6038700145379219_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6166740156988688_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6215869837165684_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6217932705648563_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6240716737047869_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6391383799071675_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6642768411423141_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6649199672792807_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6700190640319332_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6765555295233816_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.6768077274481734_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7201448245481434_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7362803633875261_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7475824121047634_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7511672887293832_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7672048479059317_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7812197420619666_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.7909977642818162_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8022656748474095_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8041525626547181_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8206137214560374_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8328361071353236_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8332802044632046_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8617199113702152_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8647662332483037_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8656558667673084_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8790317596624175_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.8840584148071784_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9289689090206068_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9430954815650354_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9461311458549126_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9769521109686043_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9928276941399816_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/1.9967100252201915_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.030332110396221_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.066367819779283_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.144146414876091_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.0159465946609574_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.161071443500206_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.197431810600273_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.204988989873332_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.228339074519371_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.245197023715737_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.0478150789144483_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.481966110802998_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.0517342580348643_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.639272352247545_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.805306146553339_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.0929731729603342_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.1023940194037696_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.1077770612481785_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.1470357533730633_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.1488990885481902_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.2673589886139403_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.2987642138008115_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.3205702922403297_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.3397988018091684_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.4119089697322282_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.4747666980089735_0.15140619373088243.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.4941178128275543_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.5369567910440898_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.5633865654785373_0.08255481251847067.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.5778200772833753_0.2776801836348979.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.6278613915777598_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
+        {stimulus: "img/2.7222925759099548_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
+      ];
+      
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus:'<div style="font-size:60px;">+</div>',
+        choice: jsPsych.NO_KEYS,
+        trial_duration: 500,
+        data:{test_part:'fixation'}
+      }
+      var test = {
+        type: "image-keyboard-response",
+        stimulus: jsPsych.timelineVariable('stimulus'),
+        choices: ['j','k'],
+        data:jsPsych.timelineVariable("data"),
+        on_finish: function(data){
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+        }
+      }
+     
+      var test_procedure = {
+        timeline: [fixation,test],
+        timeline_variables: test_stimuli
+      }
+      timeline.push(test_procedure);
+
+      var thanks = {
+        type : "html-keyboard-response",
+        stimulus: "<p> The experiment is now complete </p>"+
+          "<p> thank you for taking the time <p>"+
+          "<p> press any key to finish </p>",
+      };
+      timeline.push(thanks);
+
+      /* start the experiment */   
+      jatos.onLoad(function() { 
+          jsPsych.init({
+            timeline: timeline,
+            on_finish: function() {
+             var resultJson = jsPsych.data.get().json();
+              jatos.submitResultData(resultJson, jatos.startNextComponent);
+            }
+          });
+       });
+   </script>
+</html>
