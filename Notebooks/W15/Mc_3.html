@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>My experiment</title>
-        <script src="jspsych-6.1.0/jspsych.js"></script>
-        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
-        <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+        <script src="../jspsych-6.1.0/jspsych.js"></script>
+        <script src="../jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="../jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
         <script src="/assets/javascripts/jatos.js"></script>
-        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+        <link href="../jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
         <style type="text/css">
           #jspsych-image-keyboard-response-stimulus {
             border-radius: 50%;
@@ -192,7 +192,7 @@
         {stimulus: "img/2.6278613915777598_0.02454369260617026.png",data: {test_part: 'test', correct_response: 'j'}},
         {stimulus: "img/2.7222925759099548_0.045013330710061444.png",data: {test_part: 'test', correct_response: 'j'}},
       ];
-      
+
       var fixation = {
         type: 'html-keyboard-response',
         stimulus:'<div style="font-size:60px;">+</div>',
@@ -209,7 +209,7 @@
             data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
         }
       }
-     
+
       var test_procedure = {
         timeline: [fixation,test],
         timeline_variables: test_stimuli
@@ -224,8 +224,8 @@
       };
       timeline.push(thanks);
 
-      /* start the experiment */   
-      jatos.onLoad(function() { 
+      /* start the experiment */
+      jatos.onLoad(function() {
           jsPsych.init({
             timeline: timeline,
             on_finish: function() {
