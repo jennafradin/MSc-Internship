@@ -5,7 +5,7 @@
         <script src="../jspsych-6.1.0/jspsych.js"></script>
         <script src="../jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
         <script src="../jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
-        <script src="/assets/javascripts/jatos.js"></script>
+        <!-- <script src="/assets/javascripts/jatos.js"></script> -->
         <link href="../jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
         <style type="text/css">
           #jspsych-image-keyboard-response-stimulus {
@@ -224,15 +224,15 @@
       };
       timeline.push(thanks);
 
-      /* start the experiment */
-      jatos.onLoad(function() {
-          jsPsych.init({
-            timeline: timeline,
-            on_finish: function() {
-             var resultJson = jsPsych.data.get().json();
-              jatos.submitResultData(resultJson, jatos.startNextComponent);
-            }
-          });
-       });
+      // /* start the experiment */
+      // jatos.onLoad(function() {
+      //     jsPsych.init({
+      //       timeline: timeline,
+      //       on_finish: function() {
+      //        var resultJson = jsPsych.data.get().json();
+      //         jatos.submitResultData(resultJson, jatos.startNextComponent);
+      //       }
+      //     });
+      //  });
    </script>
 </html>
