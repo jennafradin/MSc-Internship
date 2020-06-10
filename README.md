@@ -23,14 +23,17 @@ For this, we conducted a psychophysical study using synthetic oriented textures 
 
 ## Perspectives
 
-This preliminary work could be served as a basis for a larger study on orientation discrimination. It would be interesting to find out more about the behavior of primary visual cortex neurons when performing an orientation discrimination task by measuring their activity
-during this task using electrophysiological tools.
+This preliminary work could be served as a basis for a larger study on orientation discrimination. We could replicate this experiment with participants and/or play with differents parameters (luminance, constrast or duration)
+
+It would be interesting to find out more about the behavior of primary visual cortex neurons when performing an orientation discrimination task by measuring their activity during this task using electrophysiological tools.
+
 Another possibility would be to propose a new model of orientation selectivity that will based on deep-learning which performance will be evaluated with the same orientation discrimination task proposed before.
+
 
 ## Notebooks
 
 Observations and project's progress  have been documented and presented in the form of a clear and concise technical report (Notebooks). 
 
-They have been posted weekly in the /Notebooks folder
+They have been posted weekly in the /Notebooks folder. The final codes are in /Notebooks/W18
 
                               
