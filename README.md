@@ -20,7 +20,10 @@ For this, we conducted a psychophysical study using synthetic oriented textures 
 We shown participant MC and  asked them to report the pattern orientation they perceived using the mouse. 
 
   ![motionCloud](/gif/grating.gif)
+  
+Experiment apparatus: 
 
+  ![experiment](/gif/experiment.gif)
 
 ## Results
 
