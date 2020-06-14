@@ -11,7 +11,7 @@ Being simple and tracable, the orientation selectivity is one of the most invest
 
 The main objective of this internship was to have a better understanding of the mechanisms implicated in orientation discrimination. 
 
-For this, we conducted a psychophysical study using synthetic oriented textures called **Motion Clouds** (MC) who model the distribution of orientation in natural visual scene. MC can be easily controlled by playing with different parameters and we decided to focus on 4 differents parameters: 
+For this, we conducted a psychophysical study using synthetic oriented textures called [**Motion Clouds**] (https://github.com/NeuralEnsemble/MotionClouds)(MC) who model the distribution of orientation in natural visual scene. MC can be easily controlled by playing with different parameters and we decided to focus on 4 differents parameters: 
 - the orientation angle **θ**
 - the orientation bandwidth **Bθ**
 - the spatial frequency bandwidth **Bsf** 
